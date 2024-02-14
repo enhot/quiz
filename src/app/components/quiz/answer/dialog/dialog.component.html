@@ -1,0 +1,25 @@
+<div class="dialog__container">
+  <h3>Ваши ответы</h3>
+  @if (arr && arr.length > 0) {
+  <div class="dialog__answer">
+    <ul class="dialog__list">
+      @for (item of arr; track $index) { @if(item.selectOption ===
+      item.correctAnsw){
+      <li class="dialog__item" [ngStyle]="{ backgroundColor: 'green' }">
+        {{ item.questionIdNumber - 1 }}) {{ item.selectOption }} --
+        {{ item.correctAnsw }}
+      </li>
+      }@else {
+      <li class="dialog__item" [ngStyle]="{ backgroundColor: 'red' }">
+        {{ item.questionIdNumber - 1 }}) {{ item.selectOption }} --
+        {{ item.correctAnsw }}
+      </li>
+      } }
+    </ul>
+  </div>
+  }@else if (!arr || arr.length === 0) {
+  <div class="dialog__nothing">
+    <p>Nothing</p>
+  </div>
+  }
+</div>

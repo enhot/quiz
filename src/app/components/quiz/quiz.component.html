@@ -1,0 +1,20 @@
+<div class="quiz__container">
+  <h1 class="quiz__title">Hello {{ userName }}</h1>
+  <p>{{ questions[currentIndex].id }} / {{ questions.length }}</p>
+  <ul class="quiz__list">
+    <p>{{ questions[currentIndex].text }}</p>
+    @for (item of questions[currentIndex].options; track $index) {
+
+    <li class="quiz__item">
+      <input [(ngModel)]="radio" type="radio" [value]="item.value" />
+      {{ item.label }}
+    </li>
+    }
+  </ul>
+  <button
+    class="quiz__btn btn-hover btn"
+    (click)="nextQustion(radio, questions[currentIndex].correctAnswer)"
+  >
+    Next Qustion
+  </button>
+</div>

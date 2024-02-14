@@ -1,0 +1,30 @@
+<div class="login__container">
+  <h2 class="login__title">Your login</h2>
+  <form
+    class="login__form"
+    action=""
+    [formGroup]="myForm"
+    (ngSubmit)="submit($event)"
+  >
+    <input
+      name="name"
+      formControlName="userName"
+      class="login__input"
+      type="text"
+      placeholder="Username"
+    />
+    @if(myForm.controls['userName'].invalid &&
+    myForm.controls['userName'].touched){
+    <label class="input_error">Write your name</label>
+    }
+  </form>
+  <a href="/"
+    ><button
+      [disabled]="myForm.invalid"
+      class="login__btn btn-hover btn"
+      (click)="submit($event)"
+    >
+      Start
+    </button></a
+  >
+</div>
